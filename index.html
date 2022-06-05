@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
-    <div id="terminal">
-        <input type="text" name="command" />
+    <div id="shell">
+        <div id="outputs"></div>
+
+        <div id="prompt">
+            <label for="command">$: </label>
+            <input onblur="this.focus()" id="command" type="text" />
+        </div>
     </div>
 </body>
 </html>

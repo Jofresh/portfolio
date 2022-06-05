@@ -1,0 +1,27 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#shell {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.output {
+    padding: 5px;
+}
+
+#prompt {
+    width: 100%;
+    white-space: nowrap;
+}
+
+#command {
+    background: transparent;
+    border: none;
+    outline: none;
+}
