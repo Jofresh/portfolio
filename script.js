@@ -3,39 +3,49 @@ const data = [
     { command: "projects", output: "Projet Périscolaire, Spring Boot & Svelte"},
     { command: "experience", output: "Analys Informatique 2020 - 2022"},
     { command: "education", output: "DUT Info, L3 Info + MIAGE"},
-    { command: "clear" }
 ]
 
-const shellEl = document.querySelector("#shell")
-const inputEl = document.querySelector("#command")
+const inputEl = document.querySelector("#prompt")
 const outputsEl = document.querySelector("#outputs")
 
 inputEl.focus()
+inputEl.onblur = function() { this.focus() }
 
-inputEl.onkeypress = ({keyCode, target}) => {
+inputEl.onkeypress = ({ keyCode, target }) => {
     if (keyCode === 13) {
         const { value } = target
-        const command = data.find(({command}) => command === value);
-        if (command && command.command === "clear") {
+        if (value === "clear") {
             clearShell()
             return
         }
-        printCommand(command)
+        printCommand(value)
     }
 }
 
 function clearShell() {
-    document.querySelectorAll(".output").forEach(elt => elt.remove())
+    document.querySelectorAll(".history").forEach(elt => elt.remove())
     clearInput()
 }
 
-function printCommand(command) {
-    const outputEl = document.createElement("div")
+function printCommand(value) {
+    const command = data.find(({ command }) => command === value)
 
+    const historyEl = document.createElement("div")
+    historyEl.className = "history"
+
+    const duplicatedInput = inputEl.cloneNode()
+    duplicatedInput.value = `$: ${duplicatedInput.value}`
+    duplicatedInput.className = "command"
+    duplicatedInput.readonly = true
+
+    const outputEl = document.createElement("div")
     outputEl.className = "output"
     outputEl.textContent = command ? command.output : "Cette commande n'existe pas."
 
-    outputsEl.insertAdjacentElement("beforeend", outputEl)
+    historyEl.appendChild(duplicatedInput)
+    historyEl.appendChild(outputEl)
+
+    outputsEl.insertAdjacentElement("beforeend", historyEl)
 
     clearInput()
 }
