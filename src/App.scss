@@ -1,0 +1,32 @@
+.app {
+  background: url("./assets/aurora.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  .info {
+    text-decoration: none;
+    color: black;
+
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: 1.5px solid black;
+
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      color: white;
+      background-color: black;
+    }
+  }
+}
