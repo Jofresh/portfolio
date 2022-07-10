@@ -1,18 +1,19 @@
-import "./App.scss";
+import UnderConstruction from "./components/UnderConstruction/UnderConstruction";
 
+// import { Routes, Route } from "react-router-dom";
+
+const IS_UNDER_CONSTRUCTION = true;
 function App() {
   return (
-    <div className="app">
-      <h3 className="title">Under construction...</h3>
-      <a
-        href="https://github.com/Jofresh/portfolio"
-        target="_blank"
-        rel="noreferrer"
-        className="info"
-      >
-        See on Github
-      </a>
-    </div>
+    <>
+      {IS_UNDER_CONSTRUCTION ? (
+        <UnderConstruction />
+      ) : (
+        <div className="app">
+          <div>test</div>
+        </div>
+      )}
+    </>
   );
 }
 
