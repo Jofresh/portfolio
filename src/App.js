@@ -1,17 +1,28 @@
-import UnderConstruction from "./components/UnderConstruction/UnderConstruction";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import routes from "./routes";
 
-// import { Routes, Route } from "react-router-dom";
+import { UnderConstruction } from "./pages";
+import "./App.scss";
 
-const IS_UNDER_CONSTRUCTION = true;
 function App() {
+  const isUnderConstruction = false;
+
   return (
     <>
-      {IS_UNDER_CONSTRUCTION ? (
+      {isUnderConstruction ? (
         <UnderConstruction />
       ) : (
-        <div className="app">
-          <div>test</div>
-        </div>
+        <BrowserRouter>
+          <Navbar routes={routes.filter((route) => route.path !== "*")} />
+          <div className="main">
+            <Routes>
+              {routes.map((route, i) => (
+                <Route path={route.path} element={route.element} key={i} />
+              ))}
+            </Routes>
+          </div>
+        </BrowserRouter>
       )}
     </>
   );

@@ -1,0 +1,25 @@
+.navbar {
+  height: 50px;
+  background-color: red;
+
+  display: flex;
+  align-items: center;
+
+  .navbar__brand {
+    flex: 1;
+
+    padding-left: 2rem;
+  }
+
+  .navbar__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &::after {
+    content: "";
+    flex: 1;
+  }
+}
