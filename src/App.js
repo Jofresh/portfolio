@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import { Navbar, Footer } from "./components";
 import routes from "./routes";
 
 import { UnderConstruction } from "./pages";
 import "./App.scss";
 
 function App() {
-  const isUnderConstruction = false;
+  const isUnderConstruction = true;
 
   return (
     <>
@@ -14,13 +14,16 @@ function App() {
         <UnderConstruction />
       ) : (
         <BrowserRouter>
-          <Navbar routes={routes.filter((route) => route.path !== "*")} />
-          <div className="main">
-            <Routes>
-              {routes.map((route, i) => (
-                <Route path={route.path} element={route.element} key={i} />
-              ))}
-            </Routes>
+          <div className="app">
+            <Navbar routes={routes.filter((route) => route.path !== "*")} />
+            <div className="main">
+              <Routes>
+                {routes.map((route, i) => (
+                  <Route path={route.path} element={route.element} key={i} />
+                ))}
+              </Routes>
+            </div>
+            <Footer />
           </div>
         </BrowserRouter>
       )}

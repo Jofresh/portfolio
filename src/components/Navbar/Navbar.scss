@@ -1,25 +1,46 @@
 .navbar {
+  /*position: fixed;
+  top: 0;
+  left: 0;*/
+
+  width: 100%;
+
   height: 50px;
-  background-color: red;
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 
   display: flex;
   align-items: center;
+  justify-content: space-around;
 
-  .navbar__brand {
-    flex: 1;
-
-    padding-left: 2rem;
+  > * {
+    width: 33%;
   }
+
+  /*.navbar__left {
+  }*/
 
   .navbar__center {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-  }
 
-  &::after {
-    content: "";
-    flex: 1;
+    .navbar__center-item {
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.25s ease-out;
+    }
+
+    .navbar__center-item--current {
+      border-bottom: 1px solid black;
+      transition: border-bottom 0.5s ease-out;
+    }
   }
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: white;
 }
