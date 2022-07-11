@@ -1,4 +1,4 @@
-import { Home, Experience, Education, About } from "./pages";
+import { Home, Experience, Education, About } from "../pages";
 import { Navigate } from "react-router-dom";
 
 const routes = [
