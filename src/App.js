@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components";
-import routes from "./routes";
+import routes from "./libs/routes";
 
 import { UnderConstruction } from "./pages";
 import "./App.scss";
